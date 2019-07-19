@@ -22,6 +22,8 @@ func insert(t *Tree, value string) *Tree {
 		if t == nil {
 			//new leaf node
 			return &Tree{nil, value, nil}
+		} else if t.Right == nil {
+			return &Tree{t, value, nil}
 		} else {
 			//create new current t.right with left = old right
 			//newRight := &Tree{t.Right, value, nil}
@@ -61,6 +63,7 @@ func TraversePostOrder(t *Tree) {
 	TraversePostOrder(t.Right)
 
 	//cal node value
+	//fmt.Println("CalculateNodeByStack ", t.Value)
 	CalculateNodeByStack(t.Value)
 }
 
